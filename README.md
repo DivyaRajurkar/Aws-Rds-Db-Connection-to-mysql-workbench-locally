@@ -1,30 +1,54 @@
 # Aws-Rds-Db-Connection-to-mysql-workbench-locally
-hostname:- endpoint past here
-port no :- past here 3306
+```markdown
+# AWS RDS Database Connection Instructions
 
-aws =>rsd=>database=>name_mysql_db => Connectivity & security ==>Security=>VPC security groups=>editinbound rule =>add portno anywhere 0.0.0.0
-admin
+### MySQL Database
+**Hostname:** endpoint past here  
+**Port No:** past here 3306  
 
-password:-Mypassword.1
+**Steps:**
+1. Navigate to: `aws => rsd => database => name_mysql_db => Connectivity & security => Security => VPC security groups`
+2. Edit inbound rule: Add port no anywhere `0.0.0.0`
 
-Q2)aws rds mssql database to local sql workbench
+**Admin Credentials:**  
+**Username:** admin  
+**Password:** Mypassword.1  
 
-C:\bigdata\Workbench-Build130\JDBCDrivers\mssql-jdbc-12.6.3.jre8.jar
+---
 
-download connector its depency 12.6.3.jre8.jar must little old version
+### AWS RDS MSSQL Database to Local SQL Workbench
 
-C:\bigdata\Workbench-Build130\JDBCDrivers\mysql-connector-java-8.0.28.jar
+**Required Files:**
+- `C:\bigdata\Workbench-Build130\JDBCDrivers\mssql-jdbc-12.6.3.jre8.jar`
+- Dependency: `12.6.3.jre8.jar` (must be a slightly older version)
+- `C:\bigdata\Workbench-Build130\JDBCDrivers\mysql-connector-java-8.0.28.jar`
 
+**JDBC Connection String Format:**
+```
 jdbc:sqlserver://serverName[\instanceName][:portNumber];property=value;property=value
+```
+
+**Example:**
+```
 jdbc:sqlserver://mssqldb2.cx0m0s8648g4.us-east-1.rds.amazonaws.com:1433;trustServerCertificate=true;databaseName=mydb
-aws =>rsd=>database=>name_mysql_db => Connectivity & security ==>Security=>VPC security groups=>editinbound rule =>add portno anywhere 0.0.0.0
+```
 
-hostname:- endpoint past here
-port no :- past here 1433
-databasename :- Configuration
+**Steps:**
+1. Navigate to: `aws => rsd => database => name_mysql_db => Connectivity & security => Security => VPC security groups`
+2. Edit inbound rule: Add port no anywhere `0.0.0.0`
 
-aws =>rsd=>database=>name_mssql_db => Connectivity & security ==> Endpoint coppy then past
-admin
+**Hostname:** endpoint past here  
+**Port No:** past here 1433  
+**Database Name:** Configuration  
 
-password:-Mypassword.1
-trustServerCertificate=true;databaseName=mydb one more step
+**MSSQL Database:**  
+1. Navigate to: `aws => rsd => database => name_mssql_db => Connectivity & security`
+2. Copy the Endpoint and paste it.
+
+**Admin Credentials:**  
+**Username:** admin  
+**Password:** Mypassword.1  
+
+Additional Step:  
+Ensure `trustServerCertificate=true;databaseName=mydb` is included in the connection string.
+```
